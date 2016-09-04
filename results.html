@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+	<title>Wroom!</title>
+
+	<!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--JQuery CDN-->
+    <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+
+	<!-- Compiled and minified CSS & JS-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>   
+
+	<script type="text/javascript" src="http://www.carqueryapi.com/js/carquery.0.3.4.js"></script>
+
+	<link rel="stylesheet" href="js/vegas/src/vegas.css"/>
+	<script src="js/vegas/src/vegas.js"></script>
+
+	<script src="js/results.js"></script>
+	<link rel="stylesheet" href="css/results.css">
+
+</head>
+
+<body>
+	<div class="container">
+		<div id="input-field cq-search-controls">
+			<fieldset>
+				Year Range: <select id="cq-min-year"></select> to <select id="cq-max-year"></select>
+        		<br/><hr/>
+			</fieldset>
+		<div>
+	      <fieldset>
+	         <div id="cq-search-results">Search Results:</div>
+	      </fieldset>
+	   	</div>
+
+		<div id="cq-search-result" style="display:none"></div>
+
+	</div>
+</body>

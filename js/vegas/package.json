@@ -1,0 +1,73 @@
+{
+  "name": "vegas",
+  "version": "2.2.1",
+  "description": "Vegas - Fullscreen Backgrounds and Slideshows.",
+  "homepage": "http://vegas.jaysalvat.com",
+  "author": {
+    "name": "Jay Salvat"
+  },
+  "license": "MIT",
+  "main": "dist/vegas.min.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jaysalvat/vegas.git"
+  },
+  "keywords": [
+    "background",
+    "slideshow",
+    "fullscreen",
+    "vegas",
+    "jquery-plugin",
+    "jquery",
+    "zepto"
+  ],
+  "devDependencies": {
+    "del": "^1.1.1",
+    "exec": "^0.1.3",
+    "fs": "0.0.2",
+    "gulp": "^3.8.10",
+    "gulp-autoprefixer": "^2.1.0",
+    "gulp-bump": "^0.1.11",
+    "gulp-cssmin": "^0.1.6",
+    "gulp-header": "^1.2.2",
+    "gulp-jshint": "^1.9.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-replace": "^0.5.0",
+    "gulp-sourcemaps": "^1.3.0",
+    "gulp-sync": "^0.1.4",
+    "gulp-uglify": "^1.0.2",
+    "gulp-util": "^3.0.2",
+    "gulp-zip": "^2.0.2",
+    "yargs": "^1.3.3"
+  },
+  "gitHead": "ef22baa776f2e0233934e731f732fa0742f01017",
+  "bugs": {
+    "url": "https://github.com/jaysalvat/vegas/issues"
+  },
+  "_id": "vegas@2.2.1",
+  "scripts": {},
+  "_shasum": "807eb1fb038e2da5936de6fa2d9b3e0705b2b70b",
+  "_from": "vegas@latest",
+  "_npmVersion": "3.3.12",
+  "_nodeVersion": "5.1.1",
+  "_npmUser": {
+    "name": "jaysalvat",
+    "email": "jay.salvat@gmail.com"
+  },
+  "dist": {
+    "shasum": "807eb1fb038e2da5936de6fa2d9b3e0705b2b70b",
+    "tarball": "https://registry.npmjs.org/vegas/-/vegas-2.2.1.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "jaysalvat",
+      "email": "jay.salvat@gmail.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/vegas-2.2.1.tgz_1462385067374_0.9699837232474238"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/vegas/-/vegas-2.2.1.tgz"
+}
