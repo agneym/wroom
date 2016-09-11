@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <!--Import Google Icon Font-->
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!--JQuery CDN-->
     <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
@@ -15,10 +15,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>   
 
-	<script type="text/javascript" src="http://www.carqueryapi.com/js/carquery.0.3.4.js"></script>
-
-	<link rel="stylesheet" href="js/vegas/src/vegas.css"/>
-	<script src="js/vegas/src/vegas.js"></script>
+	
 
 	<script src="js/results.js"></script>
 	<link rel="stylesheet" href="css/results.css">
@@ -27,47 +24,33 @@
 
 <body>
 	<div class="container">
-		<div id="cq-search-controls" class="input-field col s4 browser-default">
-		   <div style="float:left; width:300px;">
-		       <fieldset>
-		        Keyword: <input id="cq-search-input" type="text" />
-		        Year Range: <select id="cq-min-year" class="browser-default"></select> to <select id="cq-max-year" class="browser-default"></select>
-		        <br/>
-		        Engine Position: <select id="cq-engine-position" class="browser-default"></select>
-		        <br/>
-		        Engine Type: <select id="cq-engine-type" class="browser-default"></select>
-		        <br/><hr/>
-		        Engine Cylinders: <select id="cq-min-cylinders" class="browser-default"></select> to <select id="cq-max-cylinders"></select>
-		        <br/><hr/>
-		        Engine Power (hp): <input type="text" id="cq-min-power" style="width:30px" /> to <input type="text" id="cq-max-power" style="width:30px" />
-		        <br/><hr/>
-		        Engine Torque (lb-ft): <input type="text" id="cq-min-torque" style="width:30px" /> to <input type="text" id="cq-max-torque" style="width:30px" />
-		        <br/><hr/>
-		        Engine Fuel Type: <select id="cq-fuel-type" class="browser-default"></select>
-		        <br/><hr/>
-		        Top Speed (mph): <input type="text" id="cq-min-top-speed" style="width:30px" /> to <input type="text" id="cq-max-top-speed" style="width:30px" />
-		        <br/><hr/>
-		        Drivetrain: <select id="cq-drive" class="browser-default"></select>
-		        <br/><hr/>
-		        Seats: <select id="cq-seats" class="browser-default"></select>
-		        <br/><hr/>
-		        Doors: <select id="cq-doors" class="browser-default"></select>
-		        <br/><hr/>
-		        Weight (lbs): <input type="text" id="cq-min-weight" style="width:30px" /> to <input type="text" id="cq-max-weight" style="width:30px" />
-		        <center><input type="button" id="cq-search-btn" value="Search CarQuery" /></center>
-		       </fieldset>
-		   </div>
-		   <div style="float:left;width:300px;">
-		      <fieldset>
-		         <div id="cq-search-results">Search Results:</div>
-		      </fieldset>
-		   </div>
-		</div>
+		
+			<main>
+				<div class="carousel carousel-slider" data-indicators="true">
+	    
+				</div>
 
-		<div id="cq-search-result" style="display:none"></div>
+				<table class="striped responsive centered">
+					<tbody class="parameters">
+					</tbody>
+				</table>
+			</main>
 
-  </div>
-
-
+			<footer class="page-footer">
+		          <div class="container">
+		            <div class="row">
+		              <div class="col l6 s12">
+		                <h5 class="white-text">Wroom!</h5>
+		                <p class="grey-text text-lighten-4">We will find her for you.</p>
+		              </div>
+		              
+		            </div>
+		          </div>
+		          <div class="footer-copyright">
+		            <div class="container">
+		            © 2016 Wroom!
+		            </div>
+		          </div>
+		    </footer>
 	</div>
 </body>

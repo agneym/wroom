@@ -1,0 +1,6 @@
+body, .container {
+	width: 100%;
+}
+.carousel {
+	max-height: 100%;
+}

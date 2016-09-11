@@ -1,53 +1,56 @@
-$(function(){
-	$.urlParam = function(name){
-		var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-		return results[1] || 0;
-	}
+serialize = function(obj) {
+    var str = [];
+    for(var p in obj)
+        if (obj.hasOwnProperty(p)) {
+          str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+        }
+     return str.join("&");
+}
+$(function() {
 
-	var searchTerm = decodeURIComponent($.urlParam('search'));  
-	
-	searchTerm = searchTerm.replace(/\+/g, " ");
-	console.log(searchTerm);
-	
+    var par = "";
 
-	var carquery = new CarQuery();
-	carquery.init();
+    $.urlParam = function(name){
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        return results[1] || 0;
+    }
 
-	var searchArgs =
-     ({
-         body_id:                       "cq-body"
-        ,default_search_text:           "Keyword Search"
-        ,doors_id:                      "cq-doors"
-        ,drive_id:                      "cq-drive"
-        ,engine_position_id:            "cq-engine-position"
-        ,engine_type_id:                "cq-engine-type"
-        ,fuel_type_id:                  "cq-fuel-type"
-        ,min_cylinders_id:              "cq-min-cylinders"
-        ,min_mpg_hwy_id:                "cq-min-mpg-hwy"
-        ,min_power_id:                  "cq-min-power"
-        ,min_top_speed_id:              "cq-min-top-speed"
-        ,min_torque_id:                 "cq-min-torque"
-        ,min_weight_id:                 "cq-min-weight"
-        ,min_year_id:                   "cq-min-year"
-        ,max_cylinders_id:              "cq-max-cylinders"
-        ,max_mpg_hwy_id:                "cq-max-mpg-hwy"
-        ,max_power_id:                  "cq-max-power"
-        ,max_top_speed_id:              "cq-max-top-speed"
-        ,max_weight_id:                 "cq-max-weight"
-        ,max_year_id:                   "cq-max-year"
-        ,search_controls_id:            "cq-search-controls"
-        ,search_input_id:               "cq-search-input"
-        ,search_results_id:             "cq-search-results"
-        ,search_result_id:              "cq-search-result"
-        ,seats_id:                      "cq-seats"
-        
-     }); 
+    var searchTerm = decodeURIComponent($.urlParam('model'));  
+    searchTerm = searchTerm.replace(/\+/g, " ");
 
      
-     carquery.initSearchInterface(searchArgs);
-     
-     
-     $('#cq-search-btn').click( function(){ carquery.search(); } );
 
+    $.getJSON("https://www.carqueryapi.com/api/0.3/?callback=?", {cmd:"getModel", model: searchTerm}, function(data) {
+
+       //The 'data' variable contains all response data.
+       var makes = data;
+       for (var i = 0; i < makes.length; i++) {
+            par = (makes[i].make_display+" "+makes[i].model_name+" "+makes[i].model_trim+" "+makes[i].model_year).replace(/" "/g, "+");
+            $.ajax({
+              url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?" + $.param({q: par, count: "5"}),
+              beforeSend: function(xhrObj){
+                  // Request headers
+                  xhrObj.setRequestHeader("Content-Type","multipart/form-data");
+                  xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","169608d4f34f4c058aa07dc55f67bff3");
+              },
+              type: "POST",
+              // Request body
+              data: "{body}",
+          })
+          .done(function(data) {
+              var value = data.value;
+              for( i=0; i<value.length; i++) {
+                $('.carousel').append("<a class=\"carousel-item\" href=\"#one!\"><img src='"+value[i].contentUrl+"'></a>");
+                
+              }
+              $('.carousel').carousel({full_width: true});
+          })
+          .fail(function() {
+              alert("error");
+          });
+          $('.parameters').append("<tr><td>Make</td><td>"+makes[i].make_display+"</td></tr><tr><td>Model</td><td>"+makes[i].model_name+"</td></tr><tr><td>Year</td><td>"+makes[i].model_year+"</td></tr><tr><td>Body</td><td>"+makes[i].model_body+"</td></tr><tr><td>Engine Position</td><td>"+makes[i].model_engine_position+"</td></tr>");
+      }
+    });
+
+    
 });
-
