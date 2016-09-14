@@ -11,3 +11,6 @@ header, footer, main {
 header, h3 {
 	font-weight: 200;
 }
+.advanced {
+	padding: 20px;
+}

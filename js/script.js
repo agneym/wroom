@@ -5,6 +5,7 @@ $(function() {
             { src: 'img/2.jpg' },
             { src: 'img/3.jpg' }
         ],
-        animation: [ 'kenburnsUp', 'kenburnsDown', 'kenburnsLeft', 'kenburnsRight' ]
+        animation: [ 'kenburnsUp', 'kenburnsDown', 'kenburnsLeft', 'kenburnsRight' ],
+        preload: true
     });
 });

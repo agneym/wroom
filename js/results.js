@@ -48,7 +48,11 @@ $(function() {
           .fail(function() {
               alert("error");
           });
-          $('.parameters').append("<tr><td>Make</td><td>"+makes[i].make_display+"</td></tr><tr><td>Model</td><td>"+makes[i].model_name+"</td></tr><tr><td>Year</td><td>"+makes[i].model_year+"</td></tr><tr><td>Body</td><td>"+makes[i].model_body+"</td></tr><tr><td>Engine Position</td><td>"+makes[i].model_engine_position+"</td></tr>");
+          for (var key in makes[i]) {
+            if (makes[i].hasOwnProperty(key)) {
+              $('.parameters').append("<tr><td>"+key.replace('model'," ").replace(/_/g," ").toUpperCase() + "</td><td>" + makes[i][key] + "</td></tr>");
+            }
+          }
       }
     });
 
