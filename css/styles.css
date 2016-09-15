@@ -54,3 +54,14 @@ h3 {
    margin: 0 auto;
    display: block;
 }
+.arrow {
+    position: absolute;
+    color: red;
+    top: 90%;
+    left: 48%;
+    font-size: 1rem;
+}
+.arrow_down {
+    text-align: center;
+    font-weight: 200;
+}   
