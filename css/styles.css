@@ -16,7 +16,7 @@ body{
     height: 100%;
     margin: 0 auto;
     background-color: black;
-    opacity: 0.8;
+    opacity: 1;
     z-index: 5;
 }
 .content {
@@ -28,4 +28,12 @@ form {
 }
 input {
 	color: #26a69a;
+}
+.preloader-wrapper {
+    z-index: 7;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
 }

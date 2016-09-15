@@ -7,14 +7,15 @@ serialize = function(obj) {
 	    }
 	 return str.join("&");
 }
+
+
 $(function(){
 
 	$.urlParam = function(name){
 		var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
 		return results[1] || 0;
 	}
-
-	
+		
 	$('select').material_select();
 	
 	var searchTerm = decodeURIComponent($.urlParam('search'));  

@@ -21,7 +21,7 @@ $(function() {
      
 
     $.getJSON("https://www.carqueryapi.com/api/0.3/?callback=?", {cmd:"getModel", model: searchTerm}, function(data) {
-
+		
        //The 'data' variable contains all response data.
        var makes = data;
        for (var i = 0; i < makes.length; i++) {
@@ -38,18 +38,20 @@ $(function() {
               data: "{body}",
           })
           .done(function(data) {
-              var value = data.value;
+			  
+			  var value = data.value;
               for( i=0; i<value.length; i++) {
                 $('.carousel').append("<a class=\"carousel-item\" href=\"#one!\"><img src='"+value[i].contentUrl+"'></a>");
                 
               }
               $('.carousel').carousel({full_width: true});
+              $('.loading').hide();
           })
           .fail(function() {
               alert("error");
           });
           for (var key in makes[i]) {
-            if (makes[i].hasOwnProperty(key)) {
+            if (makes[i].hasOwnProperty(key)&&makes[i][key]!=null) {
               $('.parameters').append("<tr><td>"+key.replace('model'," ").replace(/_/g," ").toUpperCase() + "</td><td>" + makes[i][key] + "</td></tr>");
             }
           }
