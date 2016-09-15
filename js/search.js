@@ -50,16 +50,16 @@ $(function(){
 
 	   //The 'data' variable contains all response data.
 	   var makes = data.Trims;
-	   var FJS = FilterJS(makes, '.content', {
+	   var FJS = FilterJS(data.Trims, '.content', {
 			  template: '#template',
-			  filter_on_init: false, // Default filter_on_init is false  
-			  search: { ele: '#search' },  
-			  criterias: [ {field: 'model_body', ele: '#cq-body', event: 'change'},
-			  			   {field: 'model_engine_position', ele: '#cq-engine-position',event: 'change'},
-			  			   {field: 'model_engine_type', ele: '#cq-engine-type',event: 'change'},
-			  			   {field: 'model_engine_fuel', ele: '#cq-fuel-type',event: 'change'},
-			  			   {field: 'model_drive', ele: 'cq-drive', event: 'change'},
-			  			   {field:  'model_seats', ele: 'cq-seats', event:'change'}  ]
+			   // Default filter_on_init is false    
+			  criterias: [ {field: 'model_body', ele: '#cq-body', event: 'change', all:'any'},
+			  			   {field: 'model_engine_position', ele: '#cq-engine-position',event: 'change',all:'any'},
+			  			   {field: 'model_engine_type', ele: '#cq-engine-type',event: 'change',all:'any'},
+			  			   {field: 'model_engine_fuel', ele: '#cq-fuel-type',event: 'change',all:'any'},
+			  			   {field: 'model_drive', ele: 'cq-drive', event: 'change',all:'any'},
+			  			   {field:  'model_seats', ele: 'cq-seats', event:'change',all:'any'}  ],
+			  search: { ele: '#search'}
 		});
 	});
 });

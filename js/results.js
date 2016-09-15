@@ -6,6 +6,8 @@ serialize = function(obj) {
         }
      return str.join("&");
 }
+
+
 $(function() {
 
     var par = "";
@@ -15,10 +17,10 @@ $(function() {
         return results[1] || 0;
     }
 
+   
+
     var searchTerm = decodeURIComponent($.urlParam('model'));  
     searchTerm = searchTerm.replace(/\+/g, " ");
-
-     
 
     $.getJSON("https://www.carqueryapi.com/api/0.3/?callback=?", {cmd:"getModel", model: searchTerm}, function(data) {
 		

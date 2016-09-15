@@ -1,7 +1,7 @@
 $(function() {
 	$(".preloader-wrapper").hide();
-    $(".content").css("opacity", "1");
     $(".wrapper").css("opacity", "0.8");
+    $(".content").css("opacity", "1");
     $('.container').vegas({
         slides: [
             { src: 'img/1.jpg' },
