@@ -11,4 +11,5 @@ $(function() {
         animation: [ 'kenburnsUp', 'kenburnsDown', 'kenburnsLeft', 'kenburnsRight' ],
         preload: true
     });
+    $('select').material_select();
 });
