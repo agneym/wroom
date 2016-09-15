@@ -52,7 +52,6 @@ $(function(){
 	   var makes = data.Trims;
 	   var FJS = FilterJS(data.Trims, '.content', {
 			  template: '#template',
-			   // Default filter_on_init is false    
 			  criterias: [ {field: 'model_body', ele: '#cq-body', event: 'change', all:'any'},
 			  			   {field: 'model_engine_position', ele: '#cq-engine-position',event: 'change',all:'any'},
 			  			   {field: 'model_engine_type', ele: '#cq-engine-type',event: 'change',all:'any'},
