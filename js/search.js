@@ -47,7 +47,7 @@ $(function(){
 
 
 	$.getJSON("https://www.carqueryapi.com/api/0.3/?callback=?", {cmd:"getTrims", keyword: searchTerm}, function(data) {
-
+		$('.loading').hide();
 	   //The 'data' variable contains all response data.
 	   var makes = data.Trims;
 	   var FJS = FilterJS(data.Trims, '.content', {
