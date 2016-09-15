@@ -50,7 +50,7 @@ h3 {
     font-weight: 200;
 }
 .logo {
-    position: absolute;
-    left: 40%;
-    top: 20%;
+   top: 50%;
+   margin: 0 auto;
+   display: block;
 }

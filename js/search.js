@@ -30,35 +30,26 @@ $(function(){
       closeOnClick: true 
     });
 
-	 var slider = document.getElementById('slider1');
-	  noUiSlider.create(slider, {
-	   start: [1940, 2016],
-	   connect: true,
-	   step: 2,
-	   range: {
-	     'min': 1940,
-	     'max': 2016
-	   },
-	   format: wNumb({
-     	decimals: 0
-	   })
-	});
-
-
-
 	$.getJSON("https://www.carqueryapi.com/api/0.3/?callback=?", {cmd:"getTrims", keyword: searchTerm}, function(data) {
 		$('.loading').hide();
 	   //The 'data' variable contains all response data.
 	   var makes = data.Trims;
 	   var FJS = FilterJS(data.Trims, '.content', {
 			  template: '#template',
-			  criterias: [ {field: 'model_body', ele: '#cq-body', event: 'change', all:'any'},
+			  criterias: [ {field:  'model_year', ele: '#cq-year', type: 'range', event:'change',all:'any'},
+			  			   {field: 'model_body', ele: '#cq-body', event: 'change', all:'any'},
 			  			   {field: 'model_engine_position', ele: '#cq-engine-position',event: 'change',all:'any'},
 			  			   {field: 'model_engine_type', ele: '#cq-engine-type',event: 'change',all:'any'},
 			  			   {field: 'model_engine_fuel', ele: '#cq-fuel-type',event: 'change',all:'any'},
 			  			   {field: 'model_drive', ele: 'cq-drive', event: 'change',all:'any'},
-			  			   {field:  'model_seats', ele: 'cq-seats', event:'change',all:'any'}  ],
-			  search: { ele: '#search'}
+			  			   {field:  'model_seats', ele: 'cq-seats', event:'change',all:'any'},
+			 ],
+			  search: { ele: '#search'},
+			  callbacks: {
+			    afterFilter: function(result){
+			      console.log("here");
+			     }
+   }
 		});
 	});
 });

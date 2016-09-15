@@ -15,11 +15,6 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>   
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.0.4/wNumb.min.js"></script>
-	<link rel="stylesheet" href="css/nouislider.min.css"/>
-	<script src="js/nouislider.min.js"></script>
-	
-
 	<script src="js/filter.min.js"></script>
 
 	<script src="js/search.js"></script>
@@ -54,7 +49,22 @@
 			<br>
 			    <form>
 			    	<div class="advanced">
-			      		<div id="slider1"></div>
+			      		<div class='row'>
+			      			<div class="input-field col s12">
+								<select id="cq-year">
+									<option value="any">Any</option>
+									<option value="1950-1970">1950-1970</option>
+									<option>1970-1980</option>
+									<option>1980-1990</option>
+									<option>1990-2000</option>
+									<option>2000-2005</option>
+									<option>2005-2010</option>
+									<option value="2010-2013">2010-2013</option>
+									<option value="2013-2016">2013-2016</option>
+								</select>
+								<label>Year Range</label>
+			      			</div>
+			      		</div>
 			      		<div class="row">
 				      		<div class="input-field col s12">
 					      		<select id="cq-body"><option value="any">Any</option><option>Cargo Vans</option><option>Compact Cars</option><option>Convertible</option><option>Coupe</option><option>Crossover</option><option value="Hatchback">Hatchback</option><option>Large Cars</option><option>Midsize Cars</option><option>Midsize Station Wagons</option><option>Mini Compact Cars</option><option>Minivan</option><option>Not Available</option><option>Panel Van</option><option>Passenger Vans</option><option>Pickup</option><option>Roadster</option><option>Sedan</option><option>Small Pickup Trucks</option><option>Small Sport Utility Vehicles</option><option>Small Station Wagons</option><option>Sport Utility Vehicles</option><option>Standard Pickup Trucks</option><option>Standard Sport Utility Vehicles</option><option>Station Wagon</option><option>Subcompact Cars</option><option>SUV</option><option>Two Seaters</option><option>Van</option>
