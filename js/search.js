@@ -7,20 +7,46 @@ serialize = function(obj) {
 	    }
 	 return str.join("&");
 }
+var urlParams;
+(window.onpopstate = function () {
+    var match,
+        pl     = /\+/g,  // Regex for replacing addition symbol with a space
+        search = /([^&=]+)=?([^&]*)/g,
+        decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+        query  = window.location.search.substring(1);
 
+    urlParams = {};
+    while (match = search.exec(query))
+       urlParams[decode(match[1])] = decode(match[2]);
+})();
+for (var property in urlParams) {
+    if (urlParams.hasOwnProperty(property)) {
+        // do stuff
+		if(urlParams[property]=="any")
+		{
+			console.log(property);
+			delete urlParams[property];
+		}	
+    }
+}
+
+urlParams.cmd="getTrims";
 
 $(function(){
 
 	$.urlParam = function(name){
 		var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-		return results[1] || 0;
+		if(results!=null)
+			return results[1] || 0;
+		else return null;
 	}
 		
 	$('select').material_select();
 	
-	var searchTerm = decodeURIComponent($.urlParam('search'));  
+	var searchTerm = decodeURIComponent($.urlParam('keyword')); 
 	searchTerm = searchTerm.replace(/\+/g, " ");	
-	$('.header').text(searchTerm.toUpperCase());
+	if(searchTerm!="null")
+		$('.header').text(searchTerm.toUpperCase());
 
 	$(".button-collapse").sideNav();
 
@@ -30,7 +56,7 @@ $(function(){
       closeOnClick: true 
     });
 
-	$.getJSON("https://www.carqueryapi.com/api/0.3/?callback=?", {cmd:"getTrims", keyword: searchTerm}, function(data) {
+	$.getJSON("https://www.carqueryapi.com/api/0.3/?callback=?", urlParams, function(data) {
 		$('.loading').hide();
 	   //The 'data' variable contains all response data.
 	   var makes = data.Trims;
@@ -53,6 +79,5 @@ $(function(){
 		});
 	});
 });
-
 
 
