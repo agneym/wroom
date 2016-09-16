@@ -1,4 +1,19 @@
 $(function() {
+  $('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
+
+$(function() {
 	$(".preloader-wrapper").hide();
     $(".wrapper").css("opacity", "0.8");
     $(".content").css("opacity", "1");
@@ -43,8 +58,9 @@ $(function() {
     })
     .done(function(data) {
       var value = data.value;
-      for( i=0; i<value.length; i++) {
-        console.log(value[i].name+value[i].image.thumbnail.contentUrl);   
+      for( i=0; i<value.length; i++) 
+	  {  console.log(value[i]);
+        //console.log(value[i].name+value[i].image.thumbnail.contentUrl);   
         $('.bing-news').append('<div class="row">\
         <div class="col s12 m12 <l12></l12>">\
           <div class="card sticky-action small">\
